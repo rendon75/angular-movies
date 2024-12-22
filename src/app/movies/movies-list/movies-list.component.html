@@ -1,0 +1,40 @@
+<button mat-flat-button (click)="addMovie()">
+  <mat-icon>add</mat-icon>
+  Add a movie
+</button>
+
+<app-generic-list [elements]="movies">
+  <ng-container empty>
+    <p style="color: red">
+      There are no movies to display.
+    </p>
+  </ng-container>
+  <ng-container content>
+    @for(movie of movies; track $index) {
+      <div class="movies-container">
+        <div>
+          @if(movie.poster){
+            <img [src]="movie.poster" width="169" height="250">
+          } @else {
+            <img src="default.jpg" width="169" height="250">
+          }
+        </div>
+        <div>
+          <div>
+            <h2>{{$index+1}}) <b>Movie: {{movie.title | uppercase}}</b></h2>
+          </div>
+          <div>
+            Release Date: {{movie.releaseDate | date:"MMMM-dd-yyyy" | uppercase}}
+          </div>
+          <div>
+            Price: {{movie.price | currency}}
+          </div>
+          <button (click)="removeMovie(movie)">Remove</button>
+        </div>
+      </div>
+    }
+  </ng-container>
+</app-generic-list>
+
+
+
