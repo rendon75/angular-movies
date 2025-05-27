@@ -1,1 +1,10 @@
-<p>create-movie works!</p>
+<h2>Create Movie</h2>
+
+<app-movies-form
+(postFormSubmit)="saveChanges($event)"
+[selectedGenres]="selectedGenres"
+[nonSelectedGenres]="nonSelectedGenres"
+[selectedTheaters]="selectedTheaters"
+[nonSelectedTheaters]="nonSelectedTheaters"
+[selectedActors]="selectedActors">
+</app-movies-form>

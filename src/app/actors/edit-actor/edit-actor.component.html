@@ -1,1 +1,4 @@
-THe id of the actor is {{id}}
+<h2>Edit Actor</h2>
+
+<app-actors-form (postForm)="saveChanges($event)" [model]="model"></app-actors-form>
+<!-- Compare this snippet from src/app/actors/actors-form/actors-form.component.ts: -->
